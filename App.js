@@ -7,24 +7,19 @@
  * @lint-ignore-every XPLATJSCOPYRIGHT1
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Calculator</Text>
-        <Text style={styles.instructions}>Test</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <View styles={styles.result} />
+        <View styles={styles.calculation} />
+        <View styles={styles.buttons}>
+          <View styles={styles.numbers} />
+          <View styles={styles.operations}> </View>
+        </View>
       </View>
     );
   }
@@ -32,19 +27,21 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1
+  },
+  result: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'red'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  buttons: {
+    flexGrow: 1,
+    flexDirection: 'row'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  numbers: {
+    backgroundColor: 'yellow'
   },
+  operations: {
+    flex: 1,
+    backgroundColor: 'black'
+  }
 });
